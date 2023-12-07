@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/usersapp/", include("users.urls", namespace="usersapp")),
     path("api/task/", include("task.urls", namespace="task")),
-    path('api/answer/detail/<int:pk>/', AnswerDetailAPIView.as_view(), name="answer-detail"),
+    path('api/answer/detail/<int:pk>/',  AnswerDetailAPIView.as_view(), name="answer-detail"),
     path('api/answer/list/', AnswersView.as_view(), name='list'),
-    path('api/student/detail/<int:pk>/', StudentDetailAPIView.as_view(), name="student-detail"),
-    path('api/student/list/', StudentsView.as_view(), name="list"),
+    path('api/students/detail/<int:pk>/', StudentDetailAPIView.as_view(), name="students-detail"),
+    path('api/students/list/', StudentsView.as_view(), name="list"),
 ]

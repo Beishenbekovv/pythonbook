@@ -25,7 +25,8 @@ class TaskDetailAPIView(APIView):
     
     def delete(self, request, *args, **kwargs):
         task_object= Task.objects.get(pk=kwargs.get("pk"))  
-        task_object.delete()    
+        task_object.delete() 
+        return Response("Запись удалена", 204)   
     
 class TasksView(APIView):
     def get(self, request, *args, **kwargs):
