@@ -69,13 +69,15 @@ class StudentGDestroyAPIView(DestroyAPIView):  # delete
 
 
 
+class StudentsGenericView(ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentCreateSerializer
+
+
 class StudentGenericDetailAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentsSerializer
     
-class StudentsGenericView(ListCreateAPIView):
-    queryset = Student.objects.all()
-    serializer_class = StudentCreateSerializer
 
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
