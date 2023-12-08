@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 from .models import *
+from rest_framework.generics import CreateAPIView,RetrieveAPIView, RetrieveUpdateDestroyAPIView, ListCreateAPIView,ListAPIView,UpdateAPIView,DestroyAPIView
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -44,3 +46,37 @@ class StudentsView(APIView):
             return Response("Успешно создано", 201)
         else:
             return Response(serializer.error_messages, 400)
+
+class StudentGListAPIView(ListAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentsSerializer
+
+class StudentGCreateAPIView(CreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentsSerializer
+        
+class StudentGDetailAPIView(RetrieveAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentsSerializer
+
+class StudentGUpdateAPIView(UpdateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentsSerializer
+
+class StudentGDestroyAPIView(DestroyAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentsSerializer
+
+
+
+class StudentGenericDetailAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentsSerializer
+    
+class StudentsGenericView(ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentCreateSerializer
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentCreateSerializer
