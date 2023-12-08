@@ -41,6 +41,6 @@ class StudentsView(APIView):
         serializer = StudentCreateSerializer(data=request_data)
         if serializer.is_valid():
             new_student = serializer.save()
-            return Response({"id": new_student.id}, 201)
+            return Response("Успешно создано", 201)
         else:
-            return Response(serializer.errors, 400)
+            return Response(serializer.error_messages, 400)
