@@ -48,19 +48,19 @@ class StudentsView(APIView):
             return Response(serializer.error_messages, 400)
 
 class StudentGListAPIView(ListAPIView):
-    queryset = Student.objects.all()           # GET
+    queryset = Student.objects.all()           # GET 
     serializer_class = StudentsSerializer
 
 class StudentGCreateAPIView(CreateAPIView):
-    queryset = Student.objects.all()           # post
+    queryset = Student.objects.all()           # post 
     serializer_class = StudentsSerializer
         
 class StudentGDetailAPIView(RetrieveAPIView):
-    queryset = Student.objects.all()           # GET
+    queryset = Student.objects.all()           # GET  
     serializer_class = StudentsSerializer
 
 class StudentGUpdateAPIView(UpdateAPIView):
-    queryset = Student.objects.all()           # put 
+    queryset = Student.objects.all()           # put  
     serializer_class = StudentsSerializer
 
 class StudentGDestroyAPIView(DestroyAPIView):  # delete 
@@ -82,3 +82,5 @@ class StudentGenericDetailAPIView(RetrieveUpdateDestroyAPIView):
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentCreateSerializer
+
+# (http://127.0.0.1:8000/api/student/student-set/student-viewset/)
